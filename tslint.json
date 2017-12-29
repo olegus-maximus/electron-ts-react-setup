@@ -6,9 +6,19 @@
     "fix": false,
     "jsRules": {},
     "rules": {
+        "eofline": false,
+        "no-unused-expression": false,
         "max-line-length": {
             "options": [140]
         },
+        "trailing-comma": [
+            true,
+            {
+                "multiline": "never",
+                "singleline": "never",
+                "esSpecCompliant": true
+            }
+        ], 
         "quotemark": false
     },
     "rulesDirectory": []

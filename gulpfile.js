@@ -1,16 +1,23 @@
-var gulp = require('gulp');
-var ts = require('gulp-typescript');
-var tsProject = ts.createProject('tsconfig.json');
+const gulp = require('gulp');
+const ts = require('gulp-typescript');
+const tsProject = ts.createProject('tsconfig.json');
 
-var tslint = require('gulp-tslint');
+const tslint = require('gulp-tslint');
 
-var colors = require('ansi-colors');
+const colors = require('ansi-colors');
 
-var log = require('fancy-log');
+const log = require('fancy-log');
 
-var exec = require('child_process').exec;
+const exec = require('child_process').exec;
 
-gulp.task('build', ['tslint'], () => 
+const argv = require('yargs')
+  .option('travis', {
+    alias: 't',
+    default: false
+  })
+  .argv
+
+gulp.task('build', () => 
   tsProject.src()
     .pipe(tsProject())
     .on('error', () => { process.exit(1) })
@@ -25,20 +32,21 @@ gulp.task('tslint', () =>
     }))
     .pipe(tslint.report({
       allowWarnings: true,
-      emitError: false,
+      emitError: argv.travis,
       fix: false,
       summarizeFailureOutput: true
     }))
 );
 
+
 gulp.task('default', ['tslint', 'build']);
 
-gulp.task('start', ['tslint', 'build',], (callback) =>
+gulp.task('start', ['tslint', 'build'], (callback) =>
   exec('npm start', (err, stdout, stderr) => {
     if (stderr) {
       callback('Electron start failure')
       log.error(colors.red(stderr));
-      process.exit(2);
+      process.exit(1);
     }
   })
 );

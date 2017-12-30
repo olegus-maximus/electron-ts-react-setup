@@ -23,5 +23,6 @@
     "@types/react-dom": "^16.0.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
-  }
+  },
+  "repository": "https://github.com/olfilato/electron-ts-react-setup"
 }

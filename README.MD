@@ -4,6 +4,7 @@
 * ```gulp start``` - runs all of the above steps and starts the electron app.
 * ```gulp tslint``` - runs just tslint; mostly there for debugging the linter.
 
-## TODO
-* Add Webpack support
-    + Needed for the future and to fix the current issue where compiled files referencing static assets can't resolve paths properly (prevents electron from rendering index.html at the moment)
+## Latest change
+
+* Realized I don't need Webpack for this.
+* Fixed the path issue, starter code now works properly.

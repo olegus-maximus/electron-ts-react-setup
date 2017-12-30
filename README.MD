@@ -1,5 +1,4 @@
-# Starter setup for an Electron project using TypeScript+React
-[![Build Status](https://travis-ci.org/olfilato/electron-ts-react-setup.svg?branch=master)](https://travis-ci.org/olfilato/electron-ts-react-setup)
+# Starter setup for an Electron project using TypeScript+React [![Build Status](https://travis-ci.org/olfilato/electron-ts-react-setup.svg?branch=master)](https://travis-ci.org/olfilato/electron-ts-react-setup)
 
 ## Commands
 
